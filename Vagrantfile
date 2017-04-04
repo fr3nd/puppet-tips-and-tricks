@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
-    sudo yum -y install puppetserver tree git
+    sudo yum -y install puppetserver tree git graphviz
     echo PATH=$PATH:/opt/puppetlabs/bin/:/opt/puppetlabs/puppet/bin/ | sudo tee /etc/profile.d/puppet.sh
     echo "JAVA_ARGS=\'-Xms1g -Xmx1g -XX:MaxPermSize=256m\'" | sudo tee -a /etc/sysconfig/puppetserver
     sudo systemctl start puppetserver &
