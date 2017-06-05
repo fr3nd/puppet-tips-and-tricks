@@ -1,0 +1,3 @@
+txtkey1=value1
+txtkey2=value2
+txtfoo=bar
