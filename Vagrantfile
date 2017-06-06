@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
     sudo yum -y install puppetserver tree git wget
     sudo wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
     sudo rpm -iv epel-release-7-9.noarch.rpm
-    sudo yum install -y fortune-mod graphviz ImageMagick xorg-x11-xauth
+    sudo yum install -y fortune-mod graphviz eog xorg-x11-xauth
     echo PATH=$PATH:/opt/puppetlabs/bin/:/opt/puppetlabs/puppet/bin/ | sudo tee /etc/profile.d/puppet.sh
     echo "JAVA_ARGS=\'-Xms1g -Xmx1g -XX:MaxPermSize=256m\'" | sudo tee -a /etc/sysconfig/puppetserver
     sudo systemctl start puppetserver &
