@@ -29,6 +29,5 @@ Vagrant.configure(2) do |config|
     sudo chmod +x /usr/bin/jq
     sudo mkdir -p /etc/facter/facts.d
     sudo rsync -av --delete /vagrant/facts.d/ /etc/facter/facts.d
-    sudo xauth add $(xauth -f ~vagrant/.Xauthority list|tail -1)
   SHELL
 end
