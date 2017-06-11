@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_x11 = true
 
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "2048"
+    vb.memory = "1024"
   end
 
   config.vm.provision "shell", inline: <<-SHELL
@@ -16,12 +16,17 @@ Vagrant.configure(2) do |config|
     sudo yum -y install puppetserver tree git wget
     sudo wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
     sudo rpm -iv epel-release-7-9.noarch.rpm
-    sudo yum install -y fortune-mod graphviz eog xorg-x11-xauth
-    echo PATH=$PATH:/opt/puppetlabs/bin/:/opt/puppetlabs/puppet/bin/ | sudo tee /etc/profile.d/puppet.sh
+    sudo yum install -y fortune-mod graphviz eog xorg-x11-xauth gcc ncurses-devel
+    # install mdp
+    git clone https://github.com/visit1985/mdp.git
+    cd mdp
+    git checkout 1.0.9
+    make
+    sudo make install
+    cd ..
+    # configure puppet
+    echo PATH=$PATH:/usr/local/bin:/opt/puppetlabs/bin:/opt/puppetlabs/puppet/bin | sudo tee /etc/profile.d/puppet.sh
     echo "JAVA_ARGS=\'-Xms1g -Xmx1g -XX:MaxPermSize=256m\'" | sudo tee -a /etc/sysconfig/puppetserver
-    sudo systemctl start puppetserver &
-    sudo systemctl enable puppetserver
-    sudo /opt/puppetlabs/bin/puppet resource host puppet ip=127.0.0.1
     sudo rsync -av --delete /vagrant/control-repo/ /etc/puppetlabs/code/
     sudo /opt/puppetlabs/puppet/bin/gem install r10k -v 2.5.2
     sudo /opt/puppetlabs/puppet/bin/r10k puppetfile install  --verbose --puppetfile /etc/puppetlabs/code/Puppetfile --moduledir /etc/puppetlabs/code/modules/
