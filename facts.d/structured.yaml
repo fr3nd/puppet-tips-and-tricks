@@ -1,4 +1,4 @@
 ---
 yamlkey1: value1
 yamlkey2: value2
-yamlfoo: bar
+yaml_fact: hello from yaml

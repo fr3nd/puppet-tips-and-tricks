@@ -1,4 +1,4 @@
 #! /bin/bash
 
 echo "fortune=$(fortune | tr -d '\n' )"
-echo "bashfoo=bar"
+echo "bash_fact=hello from bash"

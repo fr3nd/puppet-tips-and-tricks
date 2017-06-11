@@ -1,5 +1,5 @@
 {
   "jsonkey1": "value1",
   "jsonkey2": "value2",
-  "jsonfoo": "bar"
+  "json_fact": "hello from json"
 }
