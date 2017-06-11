@@ -6,8 +6,8 @@
 ============================
 
 -> *Less known but useful Puppet commands and features* <-
+
 -> Barcelona 2017-06-27 <-
--> https://github.com/puppet-tips-and-tricks
 
 -------------------------------------------------
 
