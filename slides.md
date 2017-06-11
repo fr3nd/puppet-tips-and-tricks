@@ -112,7 +112,7 @@ Applies a standalone Puppet manifest to the local system.
 
 -------------------------------------------------
 
--> Puppet graph <-
+-> puppet graph <-
 ==================
 
 Generate a graph of the resources and relationships in the catalog.
@@ -124,7 +124,7 @@ Generate a graph of the resources and relationships in the catalog.
 
 -------------------------------------------------
 
--> Bonus: Puppet module generate <-
+-> Bonus: puppet module generate <-
 ===================================
 
 Generate boilerplate for a new module.
