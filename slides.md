@@ -129,7 +129,7 @@ Generate a graph of the resources and relationships in the catalog.
 
 Generate boilerplate for a new module.
 
-    puppet module generate
+    puppet module generate fr3nd-megamodule
 
 -------------------------------------------------
 
